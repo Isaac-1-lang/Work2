@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Simple Website</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  nav {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+  }
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  nav li {
+    position: relative;
+  }
+  nav li a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+  }
+  nav li:hover > a,
+  nav li.active > a {
+    background-color: #333;
+    color: #fff;
+  }
+  nav ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    z-index: 1;
+  }
+  nav ul li:hover > ul,
+  nav ul li.active > ul {
+    display: block;
+  }
+  nav ul ul li {
+    display: block;
+  }
+  nav ul ul li a {
+    padding: 10px;
+    text-align: left;
+  }
+  nav ul ul li.active a {
+    background-color: #4CAF50;
+    color: #fff;
+  }
+  nav ul ul li.active a:hover {
+    background-color: #388E3C;
+  }
+  nav ul ul li:not(.active) a {
+    background-color: #2196F3;
+    color: #fff;
+  }
+  nav ul ul li:not(.active) a:hover {
+    background-color: #0D47A1;
+  }
+  main {
+    padding: 20px;
+  }
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var dropdownItems = document.querySelectorAll("nav ul ul li");
+    dropdownItems.forEach(function(item) {
+      item.addEventListener("click", function() {
+        var activeItem = document.querySelector("nav ul ul li.active");
+        if (activeItem) {
+          activeItem.classList.remove("active");
+        }
+        this.classList.add("active");
+      });
+    });
+
+    // Set the first subpage as the initial active item
+    var firstSubpageItem = document.querySelector("nav ul ul li:first-child");
+    firstSubpageItem.classList.add("active");
+  });
+</script>
+</head>
+<body>
+<header>
+  <h1>Welcome to My Simple Website</h1>
+</header>
+<nav>
+  <ul>
+    <li class="active"><a href="#">Home</a>
+      <ul>
+        <li class="active"><a href="#">Subpage 1</a></li>
+        <li><a href="#">Subpage 2</a></li>
+        <li><a href="#">Subpage 3</a></li>
+      </ul>
+    </li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+<main>
+  <h2>About Our Company</h2>
+  <p>We are a small company dedicated to providing high-quality products and services to our customers.</p>
+  <h2>Our Services</h2>
+  <ul>
+    <li>Web Design</li>
+    <li>Web Development</li>
+    <li>Digital Marketing</li>
+  </ul>
+  <h2>Contact Us</h2>
+  <p>Phone: 123-456-7890</p>
+  <p>Email: info@mywebsite.com</p>
+</main>
+<footer>
+  <p>&copy; 2023 My Simple Website. All rights reserved.</p>
+</footer>
+</body>
+</html>
